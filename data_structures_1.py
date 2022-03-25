@@ -21,7 +21,7 @@ participants = [
 ]
 
 # Getting a single value, e.g. RT of 4th trial from 2nd participant
-print(participants[1, 3])
+print(participants[1], [3])
 
 # Comparing all of them is cleaner, but still slightly cumbersome
 for participant in participants:
@@ -51,3 +51,27 @@ print(participants_array.mean(axis=0))
 #      - the three separate RT lists (hint: you may need to use several for-loops)
 #      - the participants list of lists (hint: two for-loops should be enough here!)
 #      - the participants array in numpy (hint: use np.log instead of Python's log function)
+
+# 1) Import the log function from the math package (built-in)
+from math import log
+
+# 2) Try to calculate the log-RTs (the logarithm of each reaction time), using:
+#    - the three separate RT lists (hint: you may need to use several for-loops)
+for RT1 in participant_1_RTs:
+    print (log(RT1))
+for RT2 in participant_2_RTs:
+    print (log(RT2))
+for RT3 in participant_3_RTs:
+    print (log(RT3))
+
+#   - the participants list of lists (hint: two for-loops should be enough here!)
+participants_list = [participant_1_RTs, participant_2_RTs, participant_3_RTs]
+print(participants_list) 
+for pp in participants_list:
+    print (pp)
+    for RT in pp:
+        print (log (RT))
+
+#   - the participants array in numpy (hint: use np.log instead of Python's log function)
+for RTar in participants_array:
+    print (np.log(RTar))
